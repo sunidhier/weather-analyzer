@@ -2,7 +2,6 @@ import numpy as np
 import csv
 from datetime import datetime
 
-# Step 1: Load the CSV file (skipping the header)
 filename = "DailyDelhiClimateTest.csv"
 
 dates = []
@@ -22,13 +21,11 @@ with open(filename, 'r') as file:
         except:
             continue  # Skip rows with missing or invalid data
 
-# Step 2: Convert lists to NumPy arrays
 temps = np.array(temps)
 humidity = np.array(humidity)
 wind_speed = np.array(wind_speed)
 dates = np.array(dates)
 
-# Step 3: Perform calculations
 avg_temp = np.mean(temps)
 max_temp = np.max(temps)
 min_temp = np.min(temps)
@@ -41,7 +38,6 @@ high_humidity_days = np.sum(humidity > 80)
 avg_wind_speed = np.mean(wind_speed)
 windy_days = np.sum(wind_speed > 10)
 
-# Step 4: Display results
 print("--------- Delhi Weather Stats ---------")
 print(f"Average Temperature      : {avg_temp:.2f} °C")
 print(f"Hottest Day              : {max_temp_day.date()} ({max_temp} °C)")
